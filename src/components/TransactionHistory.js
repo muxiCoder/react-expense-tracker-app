@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Transaction } from './Transaction'
+import TransactionItem from '../context/TransactionItem'
 
 export const TransactionHistory = () =>
 {
+    let [transactions, setTransactions] = useContext(TransactionItem);
     return(
         <div>
             <h3>
                 Transaction History
             </h3>
             <ul className="list">
-                <Transaction transactionType="plus" />
-                <Transaction transactionType="minus" />
+                {transactions.map(transaction =>(
+                    <Transaction 
+                        id={transaction.id}
+                        description={transaction.description} 
+                        type={transaction.type} 
+                        amount={transaction.amount} 
+                    />
+                )).reverse()}
             </ul>
         </div>
-    );
+    )
 }

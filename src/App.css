@@ -120,7 +120,22 @@ select {
   width: 100%;
 }
 
-.btn {
+.btn_active {
+  cursor: pointer;
+  background-color: rgb(42, 117, 216);
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  float: left;
+}
+
+.btn_deactive {
   cursor: pointer;
   background-color: lightsteelblue;
   box-shadow: var(--box-shadow);
@@ -135,7 +150,7 @@ select {
 }
 
 .btn:focus,
-.delete-btn:focus {
+.delete-btn:focus, .edit-btn:focus {
   outline: 5px;
 }
 
@@ -177,7 +192,7 @@ select {
 }
 
 
-.delete-btn {
+.delete-btn, .edit-btn {
   cursor: pointer;
   background-color: #8a6a66;
   border: 0;
@@ -187,13 +202,21 @@ select {
   padding: 2px 5px;
   position: absolute;
   top: 50%;
-  left: 0;
+  left: -1%;
   transform: translate(-100%, -50%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
+.edit-btn {
+  left: -9.5%;
+}
+
 .list li:hover .delete-btn {
+  opacity: 1;
+}
+
+.list li:hover .edit-btn {
   opacity: 1;
 }
 
